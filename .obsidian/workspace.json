@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learn OpenGL/Hello Triangle/Vertex Input.md",
+                "file": "Learn OpenGL/Hello Triangle/Vertex Array Object.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vertex Input"
+              "title": "Vertex Array Object"
             }
           }
         ]
@@ -168,11 +168,18 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "callout-manager:Insert Callout": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "4c50b6013b2204d3",
   "lastOpenFiles": [
+    "Learn OpenGL/Hello Triangle/Linking Vertex Attributes.md",
+    "Learn OpenGL/Hello Triangle/Fragment Shader.md",
+    "Learn OpenGL/Hello Triangle/Compiling a shader.md",
+    "Learn OpenGL/Hello Triangle/Vertex Shader.md",
+    "Learn OpenGL/Hello Triangle/Vertex Input.md",
     "Learn OpenGL/Hello Triangle/Basic Theory.md",
     "Learn OpenGL/Create a Window/Rendering.md",
     "Learn OpenGL/Create a Window/Input.md",
@@ -184,11 +191,6 @@
     "Learn OpenGL/Hello Triangle/Element Buffer Objects.md",
     "Learn OpenGL/Hello Triangle/Making the Triangle.md",
     "Learn OpenGL/Hello Triangle/Vertex Array Object.md",
-    "Learn OpenGL/Hello Triangle/Linking Vertex Attributes.md",
-    "Learn OpenGL/Hello Triangle/Fragment Shader.md",
-    "Learn OpenGL/Hello Triangle/Compiling a shader.md",
-    "Learn OpenGL/Hello Triangle/Vertex Shader.md",
-    "Learn OpenGL/Hello Triangle/Vertex Input.md",
     "Learn OpenGL/Hello Triangle",
     "Learn OpenGL/1. Theory/Setup Context.md",
     "Learn OpenGL/1. Theory/OpenGL.md",
