@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learn OpenGL/Hello Triangle/Source Codes.md",
+                "file": "Obsidian displays.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Source Codes"
+              "title": "Obsidian displays"
             }
           }
         ]
@@ -173,10 +173,21 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "4c50b6013b2204d3",
+  "active": "24f39608a273f0f0",
   "lastOpenFiles": [
-    "Learn OpenGL/Hello Triangle/Element Buffer Objects.md",
+    "Courses.md",
+    "Obsidian displays.md",
     "Learn OpenGL/Hello Triangle/Source Codes.md",
+    "Learn OpenGL/Shaders/Source Code.md",
+    "Learn OpenGL/Shaders/Reading from file.md",
+    "Learn OpenGL/Shaders/More Attributes.md",
+    "Learn OpenGL/Shaders/Our own shader class.md",
+    "Learn OpenGL/Shaders/Uniforms.md",
+    "Learn OpenGL/Shaders/Ins and outs.md",
+    "Learn OpenGL/Shaders/Types.md",
+    "Learn OpenGL/Shaders/GLSL.md",
+    "Learn OpenGL/Shaders",
+    "Learn OpenGL/Hello Triangle/Element Buffer Objects.md",
     "Learn OpenGL/Hello Triangle/Fragment Shader.md",
     "Learn OpenGL/Hello Triangle/Linking Vertex Attributes.md",
     "Learn OpenGL/Hello Triangle/Vertex Array Object.md",
@@ -191,25 +202,14 @@
     "Learn OpenGL/Create a Window/Render Loop.md",
     "Learn OpenGL/Create a Window/Viewport.md",
     "Learn OpenGL/Create a Window/GLAD.md",
-    "Learn OpenGL/Create a Window/Start.md",
     "Learn OpenGL/Hello Triangle",
-    "Learn OpenGL/1. Theory/Setup Context.md",
-    "Learn OpenGL/1. Theory/OpenGL.md",
-    "Courses.md",
-    "Learn OpenGL/1. Theory/Objects.md",
-    "Learn OpenGL/1. Theory/State Machine.md",
-    "Learn OpenGL/1. Theory/Extensions.md",
-    "Learn OpenGL/1. Theory/Core Profile vs Immediate Mode.md",
-    "Computer Graphics/3. OpenGL Geometry/3.2 3D Coordinates and Transforms/3D Coordinates.md",
     "Learn OpenGL/Create a Window",
-    "Computer Graphics/2. 2D Graphics/2.4 Hierarchical Modeling/Building Complex Objects Pt. 3.md",
     "Learn OpenGL/1. Theory",
     "Learn OpenGL",
     "Computer Graphics",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing",
     "3. OpenGL Geometry/Untitled",
     "Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL",
-    "Computer Graphics/3. OpenGL Geometry/3.2 3D Coordinates and Transforms",
-    "Computer Graphics/3. OpenGL Geometry"
+    "Computer Graphics/3. OpenGL Geometry/3.2 3D Coordinates and Transforms"
   ]
 }
