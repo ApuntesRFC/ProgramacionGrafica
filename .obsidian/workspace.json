@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian displays.md",
+                "file": "Learn OpenGL/Textures/Texture Units.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Obsidian displays"
+              "title": "Texture Units"
             }
           }
         ]
@@ -173,10 +173,20 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "24f39608a273f0f0",
+  "active": "4c50b6013b2204d3",
   "lastOpenFiles": [
-    "Courses.md",
+    "Learn OpenGL/Textures/Applying textures.md",
+    "Learn OpenGL/Textures/Texture Units.md",
+    "Learn OpenGL/Textures/Generating a texture.md",
+    "Learn OpenGL/Textures/Loading and creating textures.md",
+    "Learn OpenGL/Textures/stb_image.h.md",
+    "Learn OpenGL/Textures/Mipmaps.md",
+    "Learn OpenGL/Textures/Texture Filtering.md",
+    "Learn OpenGL/Textures/Texture Wrapping.md",
+    "Learn OpenGL/Textures/Basic Theory.md",
     "Obsidian displays.md",
+    "Learn OpenGL/Textures",
+    "Courses.md",
     "Learn OpenGL/Hello Triangle/Source Codes.md",
     "Learn OpenGL/Shaders/Source Code.md",
     "Learn OpenGL/Shaders/Reading from file.md",
@@ -193,15 +203,6 @@
     "Learn OpenGL/Hello Triangle/Vertex Array Object.md",
     "Learn OpenGL/Hello Triangle/Making the Triangle.md",
     "Learn OpenGL/Hello Triangle/Compiling a shader.md",
-    "Learn OpenGL/Hello Triangle/Vertex Shader.md",
-    "Learn OpenGL/Hello Triangle/Vertex Input.md",
-    "Learn OpenGL/Hello Triangle/Basic Theory.md",
-    "Learn OpenGL/Create a Window/Rendering.md",
-    "Learn OpenGL/Create a Window/Input.md",
-    "Learn OpenGL/Create a Window/Terminate.md",
-    "Learn OpenGL/Create a Window/Render Loop.md",
-    "Learn OpenGL/Create a Window/Viewport.md",
-    "Learn OpenGL/Create a Window/GLAD.md",
     "Learn OpenGL/Hello Triangle",
     "Learn OpenGL/Create a Window",
     "Learn OpenGL/1. Theory",
@@ -209,7 +210,6 @@
     "Computer Graphics",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing",
     "3. OpenGL Geometry/Untitled",
-    "Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL",
-    "Computer Graphics/3. OpenGL Geometry/3.2 3D Coordinates and Transforms"
+    "Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL"
   ]
 }
