@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Courses.md",
-                "mode": "preview",
+                "file": "Learn OpenGL/Shaders/Source Code.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Courses"
+              "title": "Source Code"
             }
           }
         ]
@@ -175,6 +175,8 @@
   },
   "active": "4c50b6013b2204d3",
   "lastOpenFiles": [
+    "Courses.md",
+    "Learn OpenGL/Transformations",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Projection Transformation.md",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Viewport Transformation..md",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Many Coordinate Systems.md",
@@ -194,14 +196,12 @@
     "Learn OpenGL/Textures/Applying textures.md",
     "Learn OpenGL/Textures/Texture Units.md",
     "Learn OpenGL/1. Theory/OpenGL.md",
-    "Courses.md",
     "Learn OpenGL/Textures/stb_image.h.md",
     "Obsidian displays.md",
     "Learn OpenGL/Textures",
     "Learn OpenGL/Hello Triangle/Source Codes.md",
     "Learn OpenGL/Shaders/Source Code.md",
     "Learn OpenGL/Shaders/Reading from file.md",
-    "Learn OpenGL/Shaders/More Attributes.md",
     "Learn OpenGL/Shaders",
     "Learn OpenGL/Hello Triangle",
     "Learn OpenGL/Create a Window",
@@ -209,7 +209,6 @@
     "Learn OpenGL",
     "Computer Graphics",
     "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing",
-    "3. OpenGL Geometry/Untitled",
-    "Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL"
+    "3. OpenGL Geometry/Untitled"
   ]
 }
