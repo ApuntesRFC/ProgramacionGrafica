@@ -11,7 +11,7 @@ A matrix is written as:
 $$  
 A =  
 \begin{pmatrix}  
-1 & 2 & 3 \  
+1 & 2 & 3 \\  
 4 & 5 & 6  
 \end{pmatrix}  
 $$
@@ -49,7 +49,7 @@ Matrices support operations similar to numbers and vectors:
     $$  
     A + B =  
     \begin{pmatrix}  
-    a_{11}+b_{11} & a_{12}+b_{12} \  
+    a_{11}+b_{11} & a_{12}+b_{12} \\  
     a_{21}+b_{21} & a_{22}+b_{22}  
     \end{pmatrix}  
     $$

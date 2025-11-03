@@ -26,20 +26,20 @@ For two matrices $A_{(m×n)}$ and $B_{(n×p)}$:
 $$  
 A =  
 \begin{pmatrix}  
-1 & 2 \  
+1 & 2 \\  
 3 & 4  
 \end{pmatrix},  
 \quad  
 B =  
 \begin{pmatrix}  
-5 & 6 \  
+5 & 6 \\  
 7 & 8  
 \end{pmatrix}  
 $$
 
-Then:
+#### Then:
 
-# $$  
+$$  
 A·B =  
 \begin{pmatrix}  
 1·5 + 2·7 & 1·6 + 2·8 \  

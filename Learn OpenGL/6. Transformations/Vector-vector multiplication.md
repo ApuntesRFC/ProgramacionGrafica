@@ -34,7 +34,7 @@ $$
 
 #### Example
 
-# $$  
+$$  
 \begin{pmatrix}  
 0.6 \ -0.8 \ 0  
 \end{pmatrix}  
@@ -56,6 +56,7 @@ $$
 ### 2. Cross Product
 
 #### Formula
+
 
 $$  
 \vec{v} \times \vec{k} =  

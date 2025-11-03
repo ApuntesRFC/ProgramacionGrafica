@@ -11,8 +11,8 @@ A 3D vector:
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-x \  
-y \  
+x \\  
+y \\  
 z  
 \end{pmatrix}  
 $$
@@ -54,28 +54,28 @@ Given:
 $$  
 M =  
 \begin{pmatrix}  
-2 & 0 \  
+2 & 0 \\  
 0 & 3  
 \end{pmatrix},  
 \quad  
 \vec{v} =  
 \begin{pmatrix}  
-1 \  
+1 \\  
 1  
 \end{pmatrix}  
 $$
 
 Then:
 
-# $$  
+ $$  
 M·\vec{v} =  
 \begin{pmatrix}  
-2·1 + 0·1 \  
+2·1 + 0·1 \\  
 0·1 + 3·1  
 \end{pmatrix}
 
 \begin{pmatrix}  
-2 \  
+2 \\  
 3  
 \end{pmatrix}  
 $$

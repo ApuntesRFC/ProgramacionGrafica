@@ -10,7 +10,7 @@ Given a scalar $s$ and a matrix:
 $$  
 A =  
 \begin{pmatrix}  
-1 & 2 \  
+1 & 2 \\  
 3 & 4  
 \end{pmatrix}  
 $$
@@ -31,15 +31,15 @@ $$
 
 If $s = 2$, then:
 
-# $$  
+ $$  
 2 \cdot  
 \begin{pmatrix}  
-1 & 2 \  
+1 & 2 \\  
 3 & 4  
 \end{pmatrix}
 
 \begin{pmatrix}  
-2 & 4 \  
+2 & 4 \\  
 6 & 8  
 \end{pmatrix}  
 $$

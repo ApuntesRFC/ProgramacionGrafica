@@ -9,7 +9,7 @@ Let
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-1 \ 2 \ 3  
+1 \\ 2 \\ 3  
 \end{pmatrix},  
 \quad  
 x \in \mathbb{R}  
@@ -22,12 +22,12 @@ Then:
 $$  
 \vec{v} + x =  
 \begin{pmatrix}  
-1 + x \ 2 + x \ 3 + x  
+1 + x \\2 + x \\ 3 + x  
 \end{pmatrix},  
 \qquad  
 \vec{v} - x =  
 \begin{pmatrix}  
-1 - x \ 2 - x \ 3 - x  
+1 - x \\ 2 - x \\ 3 - x  
 \end{pmatrix}  
 $$
 
@@ -36,7 +36,7 @@ $$
 $$  
 \vec{v} \cdot x =  
 \begin{pmatrix}  
-1 \cdot x \ 2 \cdot x \ 3 \cdot x  
+1 \cdot x \\ 2 \cdot x \\ 3 \cdot x  
 \end{pmatrix}  
 $$
 
@@ -45,7 +45,7 @@ $$
 $$  
 \vec{v} / x =  
 \begin{pmatrix}  
-1/x \ 2/x \ 3/x  
+1/x \\ 2/x \\ 3/x  
 \end{pmatrix}  
 $$
 

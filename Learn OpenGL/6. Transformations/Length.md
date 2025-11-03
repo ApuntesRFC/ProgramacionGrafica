@@ -10,11 +10,11 @@ For a vector
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-x \ y  
+x \\ y  
 \end{pmatrix}  
 \quad \text{or} \quad  
 \begin{pmatrix}  
-x \ y \ z  
+x \\ y \\ z  
 \end{pmatrix}  
 $$
 
@@ -69,21 +69,22 @@ $$
 $$
 
 ---
-### Information Addendum
+
 > [!info]
-
-
- - **Unit vectors** describe _direction only_ — magnitude is removed.
-    
- - They are used extensively in lighting, physics, and movement systems.
-    
- - Normalization ensures stability in computations (e.g., dot and cross products).
-     
- - In GLM:
-     
-    ```cpp
->     glm::vec3 v(4.0f, 2.0f, 0.0f);
+>  - **Unit vectors** describe _direction only_ — magnitude is removed.
+>
+> - They are used extensively in lighting, physics, and movement systems.
+  >  
+ >- Normalization ensures stability in computations (e.g., dot and cross products).
+>     
+ >- In GLM:
+>     
+  >  ```cpp
+>    glm::vec3 v(4.0f, 2.0f, 0.0f);
 >     float len = glm::length(v);       // 4.47
 >     glm::vec3 n = glm::normalize(v);  // (0.894, 0.447, 0)
->     ```
->
+>     
+
+
+
+

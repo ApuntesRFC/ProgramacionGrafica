@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learn OpenGL/7. Coordinate Systems/More 3D.md",
+                "file": "Learn OpenGL/7. Coordinate Systems/Basic Theory.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "More 3D"
+              "title": "Basic Theory"
             }
           }
         ]
@@ -175,6 +175,26 @@
   },
   "active": "4c50b6013b2204d3",
   "lastOpenFiles": [
+    "Learn OpenGL/6. Transformations/GLM.md",
+    "Learn OpenGL/6. Transformations/Combining matrices.md",
+    "Learn OpenGL/6. Transformations/Rotation.md",
+    "Learn OpenGL/6. Transformations/Translation.md",
+    "Learn OpenGL/6. Transformations/Scaling.md",
+    "Learn OpenGL/6. Transformations/Identity Matrix.md",
+    "Learn OpenGL/6. Transformations/Length.md",
+    "Learn OpenGL/6. Transformations/Vector-vector multiplication.md",
+    "Learn OpenGL/6. Transformations/Addition and subtraction.md",
+    "Learn OpenGL/6. Transformations/Vector negation.md",
+    "Learn OpenGL/6. Transformations/Scalar Vector Operations.md",
+    "Learn OpenGL/6. Transformations/Vectors.md",
+    "Learn OpenGL/6. Transformations/Matrix-scalar products.md",
+    "Learn OpenGL/6. Transformations/Matrix-Vector multiplication.md",
+    "Learn OpenGL/6. Transformations/Matrix-matrix multiplication.md",
+    "Learn OpenGL/6. Transformations/Addition and subtraction (Matrix).md",
+    "Learn OpenGL/6. Transformations/Matrices.md",
+    "desktop.ini",
+    "Learn OpenGL/7. Coordinate Systems/Basic Theory.md",
+    "Learn OpenGL/7. Coordinate Systems/More 3D.md",
     "Learn OpenGL/7. Coordinate Systems/Z-Buffer.md",
     "Learn OpenGL/7. Coordinate Systems/More cubes.md",
     "Learn OpenGL/7. Coordinate Systems/Orthographic projection.md",
@@ -182,34 +202,14 @@
     "Learn OpenGL/7. Coordinate Systems/View Space.md",
     "Learn OpenGL/7. Coordinate Systems/World Space.md",
     "Learn OpenGL/7. Coordinate Systems/Local Space.md",
-    "Learn OpenGL/7. Coordinate Systems/The global picture.md",
-    "Learn OpenGL/7. Coordinate Systems/Basic Theory.md",
-    "Learn OpenGL/7. Coordinate Systems/Perspective projection.md",
-    "Learn OpenGL/7. Coordinate Systems/Putting it all together.md",
-    "Learn OpenGL/7. Coordinate Systems/Going 3D.md",
-    "Learn OpenGL/7. Coordinate Systems/More 3D.md",
-    "Learn OpenGL/6. Textures/Texture Units.md",
-    "Learn OpenGL/6. Textures/Texture Filtering.md",
-    "Learn OpenGL/6. Textures/Basic Theory.md",
-    "Learn OpenGL/6. Textures/Texture Wrapping.md",
-    "Learn OpenGL/6. Textures/Loading and creating textures.md",
-    "Learn OpenGL/1. Theory/Core Profile vs Immediate Mode.md",
-    "Learn OpenGL/1. Theory/OpenGL.md",
-    "Learn OpenGL/1. Theory/Objects.md",
-    "Learn OpenGL/1. Theory/State Machine.md",
-    "Learn OpenGL/1. Theory/Setup Context.md",
-    "Learn OpenGL/5. Transformations/GLM.md",
     "Learn OpenGL/7. Coordinate Systems",
-    "Learn OpenGL/5. Transformations/Vectors.md",
-    "Learn OpenGL/5. Transformations/Scalar Vector Operations.md",
-    "Learn OpenGL/5. Transformations",
-    "Learn OpenGL/6. Textures",
+    "Learn OpenGL/6. Transformations",
+    "Learn OpenGL/5. Textures",
     "Learn OpenGL/4. Shaders",
     "Learn OpenGL/3. Hello Triangle",
     "Learn OpenGL/2. Create a Window",
     "Learn OpenGL/1. Theory",
     "Learn OpenGL",
-    "Computer Graphics",
-    "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing"
+    "Computer Graphics"
   ]
 }

@@ -26,25 +26,25 @@ In homogeneous coordinates, translation is defined as:
 $$  
 T =  
 \begin{pmatrix}  
-1 & 0 & 0 & T_x \  
-0 & 1 & 0 & T_y \  
-0 & 0 & 1 & T_z \  
+1 & 0 & 0 & T_x \\  
+0 & 1 & 0 & T_y \\  
+0 & 0 & 1 & T_z \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
 
 Applied to a vector $(x, y, z, 1)$:
 
-# $$  
+ $$  
 T \cdot  
 \begin{pmatrix}  
-x \ y \ z \ 1  
+x \\ y \\ z \\ 1  
 \end{pmatrix}
 
 \begin{pmatrix}  
-x + T_x \  
-y + T_y \  
-z + T_z \  
+x + T_x \\  
+y + T_y \\  
+z + T_z \\  
 1  
 \end{pmatrix}  
 $$
@@ -57,12 +57,12 @@ If
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-1 \ 2 \ 3 \ 1  
+1 \\ 2 \\ 3 \\ 1  
 \end{pmatrix},  
 \quad  
 \vec{T} =  
 \begin{pmatrix}  
-4 \ -2 \ 1  
+4 \\ -2 \\ 1  
 \end{pmatrix}  
 $$
 
@@ -71,7 +71,7 @@ Then:
 $$  
 T \cdot \vec{v} =  
 \begin{pmatrix}  
-5 \ 0 \ 4 \ 1  
+5 \\ 0 \\ 4 \\ 1  
 \end{pmatrix}  
 $$
 

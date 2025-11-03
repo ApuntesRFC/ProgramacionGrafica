@@ -10,12 +10,12 @@ Given:
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-1 \ 2 \ 3  
+1 \\ 2 \\ 3  
 \end{pmatrix},  
 \quad  
 \vec{k} =  
 \begin{pmatrix}  
-4 \ 5 \ 6  
+4 \\ 5 \\ 6  
 \end{pmatrix}  
 $$
 
@@ -45,12 +45,12 @@ Subtracting one vector from another:
 $$  
 \vec{v} - \vec{k} =  
 \begin{pmatrix}  
-1 - 4 \  
-2 - 5 \  
+1 - 4 \\  
+2 - 5 \\  
 3 - 6  
 \end{pmatrix} =  
 \begin{pmatrix}  
--3 \ -3 \ -3  
+-3 \\ -3 \\ -3  
 \end{pmatrix}  
 $$
 

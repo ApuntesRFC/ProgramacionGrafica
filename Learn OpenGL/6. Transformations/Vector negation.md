@@ -10,7 +10,7 @@ Given
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-v_x \ v_y \ v_z  
+v_x \\ v_y \\ v_z  
 \end{pmatrix}  
 $$
 
@@ -20,7 +20,7 @@ $$
 -\vec{v} =  
 \begin{pmatrix}
 
-- v_x \ - v_y \ - v_z  
+- v_x \\ - v_y \\ - v_z  
     \end{pmatrix}  
     $$
     
@@ -37,11 +37,11 @@ $$
 
 If  
 $$  
-\vec{v} = (2,, 3,, 0)  
+\vec{v} = (2, 3, 0)  
 $$  
 then  
 $$  
--\vec{v} = (-2,,-3,,0)  
+-\vec{v} = (-2,-3,0)  
 $$
 
 So a vector pointing **northeast** now points **southwest**, but both have the same length.

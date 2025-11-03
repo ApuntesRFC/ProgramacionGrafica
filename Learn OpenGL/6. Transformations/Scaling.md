@@ -33,23 +33,23 @@ The scaling transformation matrix is:
 $$  
 S =  
 \begin{pmatrix}  
-S_1 & 0 & 0 & 0 \  
-0 & S_2 & 0 & 0 \  
-0 & 0 & S_3 & 0 \  
+S_1 & 0 & 0 & 0 \\  
+0 & S_2 & 0 & 0 \\  
+0 & 0 & S_3 & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
 
 Applied to a vector $(x, y, z, 1)$:
 
-# $$  
+$$  
 S \cdot  
 \begin{pmatrix}  
-x \ y \ z \ 1  
+x \\ y \\ z \\ 1  
 \end{pmatrix}
 
 \begin{pmatrix}  
-S_1x \ S_2y \ S_3z \ 1  
+S_1x \\ S_2y \\ S_3z \\ 1  
 \end{pmatrix}  
 $$
 
@@ -60,15 +60,15 @@ $$
 $$  
 S =  
 \begin{pmatrix}  
-0.5 & 0 & 0 & 0 \  
-0 & 2 & 0 & 0 \  
-0 & 0 & 1 & 0 \  
+0.5 & 0 & 0 & 0 \\  
+0 & 2 & 0 & 0 \\  
+0 & 0 & 1 & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix},  
 \quad  
 \vec{v} =  
 \begin{pmatrix}  
-3 \ 2 \ 0 \ 1  
+3 \\ 2 \\ 0 \\ 1  
 \end{pmatrix}  
 $$
 
@@ -77,7 +77,7 @@ Then:
 $$  
 S \cdot \vec{v} =  
 \begin{pmatrix}  
-1.5 \ 4 \ 0 \ 1  
+1.5 \\ 4 \\ 0 \\ 1  
 \end{pmatrix}  
 $$
 

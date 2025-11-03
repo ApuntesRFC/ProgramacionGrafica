@@ -29,9 +29,9 @@ $$
 $$  
 R_x(\theta) =  
 \begin{pmatrix}  
-1 & 0 & 0 & 0 \  
-0 & \cos\theta & -\sin\theta & 0 \  
-0 & \sin\theta & \cos\theta & 0 \  
+1 & 0 & 0 & 0 \\  
+0 & \cos\theta & -\sin\theta & 0 \\  
+0 & \sin\theta & \cos\theta & 0 \\ 
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
@@ -41,9 +41,9 @@ $$
 $$  
 R_y(\theta) =  
 \begin{pmatrix}  
-\cos\theta & 0 & \sin\theta & 0 \  
-0 & 1 & 0 & 0 \  
--\sin\theta & 0 & \cos\theta & 0 \  
+\cos\theta & 0 & \sin\theta & 0 \\  
+0 & 1 & 0 & 0 \\  
+-\sin\theta & 0 & \cos\theta & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
@@ -53,9 +53,9 @@ $$
 $$  
 R_z(\theta) =  
 \begin{pmatrix}  
-\cos\theta & -\sin\theta & 0 & 0 \  
-\sin\theta & \cos\theta & 0 & 0 \  
-0 & 0 & 1 & 0 \  
+\cos\theta & -\sin\theta & 0 & 0 \\  
+\sin\theta & \cos\theta & 0 & 0 \\  
+0 & 0 & 1 & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
@@ -71,9 +71,9 @@ To rotate around an arbitrary unit axis $(R_x, R_y, R_z)$:
 $$  
 R(\theta) =  
 \begin{pmatrix}  
-\cos\theta + R_x^2(1-\cos\theta) & R_xR_y(1-\cos\theta) - R_z\sin\theta & R_xR_z(1-\cos\theta) + R_y\sin\theta & 0 \  
-R_yR_x(1-\cos\theta) + R_z\sin\theta & \cos\theta + R_y^2(1-\cos\theta) & R_yR_z(1-\cos\theta) - R_x\sin\theta & 0 \  
-R_zR_x(1-\cos\theta) - R_y\sin\theta & R_zR_y(1-\cos\theta) + R_x\sin\theta & \cos\theta + R_z^2(1-\cos\theta) & 0 \  
+\cos\theta + R_x^2(1-\cos\theta) & R_xR_y(1-\cos\theta) - R_z\sin\theta & R_xR_z(1-\cos\theta) + R_y\sin\theta & 0 \\  
+R_yR_x(1-\cos\theta) + R_z\sin\theta & \cos\theta + R_y^2(1-\cos\theta) & R_yR_z(1-\cos\theta) - R_x\sin\theta & 0 \\  
+R_zR_x(1-\cos\theta) - R_y\sin\theta & R_zR_y(1-\cos\theta) + R_x\sin\theta & \cos\theta + R_z^2(1-\cos\theta) & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$

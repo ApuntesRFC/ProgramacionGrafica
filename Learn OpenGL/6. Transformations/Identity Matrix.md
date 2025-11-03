@@ -11,9 +11,9 @@ A **4×4 identity matrix** looks like:
 $$  
 I =  
 \begin{pmatrix}  
-1 & 0 & 0 & 0 \  
-0 & 1 & 0 & 0 \  
-0 & 0 & 1 & 0 \  
+1 & 0 & 0 & 0 \\  
+0 & 1 & 0 & 0 \\  
+0 & 0 & 1 & 0 \\  
 0 & 0 & 0 & 1  
 \end{pmatrix}  
 $$
@@ -26,14 +26,14 @@ All diagonal elements are **1**, all others are **0**.
 
 Multiplying $I$ by any 4D vector leaves it **unchanged**:
 
-# $$  
+ $$  
 I \cdot  
 \begin{pmatrix}  
-1 \ 2 \ 3 \ 4  
+1 \\ 2 \\ 3 \\ 4  
 \end{pmatrix}
 
 \begin{pmatrix}  
-1 \ 2 \ 3 \ 4  
+1 \\ 2 \\ 3 \\ 4  
 \end{pmatrix}  
 $$
 

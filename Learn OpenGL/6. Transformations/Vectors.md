@@ -10,8 +10,8 @@ A **vector** $\vec{v}$ is an ordered set of components representing direction an
 $$  
 \vec{v} =  
 \begin{pmatrix}  
-x \  
-y \  
+x \\  
+y \\  
 z  
 \end{pmatrix}  
 $$
@@ -67,8 +67,8 @@ $$
 $$  
 \vec{a} - \vec{b} =  
 \begin{pmatrix}  
-a_x - b_x \  
-a_y - b_y \  
+a_x - b_x \\  
+a_y - b_y \\  
 a_z - b_z  
 \end{pmatrix}  
 $$
@@ -80,8 +80,8 @@ $$
 $$  
 k \vec{v} =  
 \begin{pmatrix}  
-k x \  
-k y \  
+k x \\  
+k y \\ 
 k z  
 \end{pmatrix}  
 $$
