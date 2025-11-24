@@ -1,49 +1,102 @@
-# Ruta en Obsidian — Programación Gráfica
-
-## Núcleo
-
-- **Curso 1:** [Linear Algebra from Elementary to Advanced (JHU)](https://www.coursera.org/specializations/linear-algebra-elementary-to-advanced)
-    
-- **Curso 2:** [Vector Calculus for Engineers (HKUST)](https://www.coursera.org/learn/vector-calculus-engineers)
-    
-- **Curso 3:** [Numerical Methods for Engineers (HKUST)](https://www.coursera.org/learn/numerical-methods-engineers)
-    
-- **Curso 4:** [Mathematics for Engineers — Specialization (HKUST)](https://www.coursera.org/specializations/mathematics-engineers)
-    
-- **Curso 5:** [Introduction to Mechanics — Specialization (Rice)](https://www.coursera.org/specializations/introduction-to-mechanics)
-    
-- **Curso 6:** [Physics of Waves and Optics — Specialization](https://www.coursera.org/specializations/waves-optics)
-    
-
-## Secundarios (según foco)
-
-- **S1:** [Discrete Mathematics for CSE (BITS)](https://www.coursera.org/learn/bits-discrete-mathematics-computer-science-engineering)
-    
-- **S2:** [Finite Element Method (Michigan)](https://www.coursera.org/learn/finite-element-method)
-    
-- **S3:** [Applied Computational Fluid Dynamics](https://www.coursera.org/learn/applied-computational-fluid-dynamics)
-    
-- **S4:** [Unity Procedural Generation — Specialization](https://www.coursera.org/specializations/unity-procedural-generation-game-mechanics)
-    
-- **S5:** [Unity: Advanced Rendering Effects](https://www.coursera.org/learn/unity-design-implement-advanced-rendering-effects)
-    
-- **S6:** [Unity: Deformar mallas y geometría 3D](https://www.coursera.org/learn/unity-design-deform-meshes-3d-geometry-control)
-    
-- **S7:** [Unity: Vóxeles y Marching Squares](https://www.coursera.org/learn/unity-design-voxel-environments-marching-squares)
-    
-- **S8:** [Unreal Engine: Advanced FX & Gameplay Design](https://www.coursera.org/learn/unreal-engine-master-advanced-fx-gameplay-design)
-    
-- **S9 (alternativa puntual):** [Physics 101: Forces and Kinematics](https://www.coursera.org/learn/physics-101-forces-kinematics)
-    
-
-## Por si te interesa
-
-- **O1 (repaso en español):** [Física: Dimensión y Movimiento](https://www.coursera.org/learn/fisica-dimension-movimiento)
-    
-- **O2 (repaso en español):** [Física: Vectores, Trabajo y Energía](https://www.coursera.org/learn/fisica-vectores-trabajo-energia)
-    
-- **O3 (curiosidad):** [Quantum Computing for Beginners — Specialization](https://www.coursera.org/specializations/packt-the-complete-quantum-computing-course-for-beginners)
 
 
-https://www.coursera.org/learn/fibonacci
-https://www.coursera.org/learn/unity-master-procedural-fractal-spline-design
+> [!summary]  
+> Ruta completa, optimizada y secuenciada para dominar Computación Gráfica al nivel requerido por **simuladores militares**: fundamentos matemáticos, física avanzada, métodos numéricos, geometría computacional, rendering, shaders, motores 3D (Unity y Unreal) y simulación.
+
+# Ruta — Programación Gráfica Profesional (Simuladores)
+
+---
+
+## 1. Núcleo Matemático (imprescindible)
+
+> [!important]  
+> Sin este bloque, no puedes desarrollar software gráfico profesional, motores, simuladores o sistemas de rendering físico.
+
+1. **Linear Algebra from Elementary to Advanced (JHU)**
+    
+2. **Vector Calculus for Engineers (HKUST)**
+    
+3. **Mathematics for Engineers — Specialization (HKUST)**
+    
+4. **Numerical Methods for Engineers (HKUST)**
+    
+
+---
+
+## 2. Núcleo Físico (para simuladores)
+
+> [!info]  
+> Indispensable para motores de física realistas, simulaciones de proyectiles, vehículos, fluidos, ondas e iluminación física.
+
+5. **Introduction to Mechanics — Specialization (Rice)**
+    
+6. **Physics of Waves and Optics — Specialization**
+    
+
+---
+
+## 3. Secundarios Matemático-Computacionales
+
+> [!tip]  
+> Estos cursos aproximan tu perfil al estándar de simulación militar: FEM, CFD, discretización, estabilidad numérica, mallas.
+
+7. **Discrete Mathematics for CSE (BITS)**
+    
+8. **Finite Element Method (Michigan)**
+    
+9. **Applied Computational Fluid Dynamics**
+    
+
+---
+
+## 4. Programación Gráfica Aplicada — Unity (Ruta profesional)
+
+> [!important]  
+> Este orden te permite dominar _geometría_, _procedural generation_, _mesh deformation_, _voxels_ y _rendering_.
+
+10. **Unity Procedural Generation — Specialization**
+    
+11. **Unity: Deformar mallas y geometría 3D**
+    
+12. **Unity: Vóxeles y Marching Squares**
+    
+13. **Unity: Advanced Rendering Effects**
+    
+
+---
+
+## 5. Motores AAA — Unreal Engine
+
+> [!important]  
+> Unreal es estándar en aeronáutica, defensa y simulación militar. Aquí desarrollas efectos avanzados, gameplay basado en física y rendering AAA.
+
+14. **Unreal Engine: Advanced FX & Gameplay Design**
+    
+
+---
+
+##  6. Extras recomendados (según objetivos)
+
+> [!note]  
+> Solo si quieres reforzar base física, teoría o explorar temas avanzados.
+
+15. **Physics 101: Forces and Kinematics** (refuerzo)
+    
+16. **Física: Dimensión y Movimiento**
+    
+17. **Física: Vectores, Trabajo y Energía**
+    
+18. **Quantum Computing for Beginners (curiosidad pura)**
+    
+
+---
+
+##  7. Microcursos matemático-geométricos útiles
+
+> [!example]  
+> Muy útiles para fractales, splines, caminos, curvas, ruido procedural.
+
+19. [https://www.coursera.org/learn/fibonacci](https://www.coursera.org/learn/fibonacci)
+    
+20. [https://www.coursera.org/learn/unity-master-procedural-fractal-spline-design](https://www.coursera.org/learn/unity-master-procedural-fractal-spline-design)
+    

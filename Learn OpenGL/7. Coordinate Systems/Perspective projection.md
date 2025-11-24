@@ -81,9 +81,9 @@ The **perspective matrix** introduces non-zero terms in the last row and column 
 $$  
 P_{persp} =  
 \begin{bmatrix}  
-\frac{1}{a \tan(\frac{fov}{2})} & 0 & 0 & 0 \  
-0 & \frac{1}{\tan(\frac{fov}{2})} & 0 & 0 \  
-0 & 0 & -\frac{f+n}{f-n} & -\frac{2fn}{f-n} \  
+\frac{1}{a \tan(\frac{fov}{2})} & 0 & 0 & 0 \\  
+0 & \frac{1}{\tan(\frac{fov}{2})} & 0 & 0 \\  
+0 & 0 & -\frac{f+n}{f-n} & -\frac{2fn}{f-n} \\  
 0 & 0 & -1 & 0  
 \end{bmatrix}  
 $$
