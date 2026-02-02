@@ -88,9 +88,9 @@ glm::mat4 proj = glm::ortho(left, right, bottom, top, zNear, zFar);
 $$  
 T(d_x,d_y,d_z)=  
 \begin{bmatrix}  
-1&0&0&d_x\  
-0&1&0&d_y\  
-0&0&1&d_z\  
+1&0&0&d_x \\  
+0&1&0&d_y \\  
+0&0&1&d_z \\  
 0&0&0&1  
 \end{bmatrix}  
 $$
@@ -99,9 +99,9 @@ $$
 $$  
 S(s_x,s_y,s_z)=  
 \begin{bmatrix}  
-s_x&0&0&0\  
-0&s_y&0&0\  
-0&0&s_z&0\  
+s_x&0&0&0\\  
+0&s_y&0&0\\  
+0&0&s_z&0\\  
 0&0&0&1  
 \end{bmatrix}  
 $$
@@ -110,9 +110,9 @@ $$
 $$  
 R_z(r)=  
 \begin{bmatrix}  
-\cos r&-\sin r&0&0\  
-\sin r& \cos r&0&0\  
-0&0&1&0\  
+\cos r&-\sin r&0&0\\  
+\sin r& \cos r&0&0\\  
+0&0&1&0\\  
 0&0&0&1  
 \end{bmatrix}  
 $$

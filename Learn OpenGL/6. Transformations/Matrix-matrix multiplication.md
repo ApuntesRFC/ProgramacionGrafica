@@ -1,6 +1,7 @@
 > [!summary]  
 > **Matrix multiplication** combines rows of the left matrix with columns of the right matrix.  
-> It’s defined **only if** the number of **columns of A = rows of B**, and it’s **not commutative** ($A·B \neq B·A$).
+> It’s defined **only if** the number of **columns of A = rows of B**, and it’s **not commutative** 
+> $$(A·B \neq B·A)$$
 
 ---
 
@@ -42,12 +43,12 @@ $$
 $$  
 A·B =  
 \begin{pmatrix}  
-1·5 + 2·7 & 1·6 + 2·8 \  
+1·5 + 2·7 & 1·6 + 2·8 \\
 3·5 + 4·7 & 3·6 + 4·8  
 \end{pmatrix}
 
 \begin{pmatrix}  
-19 & 22 \  
+19 & 22 \\  
 43 & 50  
 \end{pmatrix}  
 $$
@@ -73,22 +74,22 @@ $$
 
 ### 4. Example: 3×3 Matrices
 
-# $$  
+$$  
 \begin{pmatrix}  
-4 & 2 & 0 \  
-0 & 8 & 1 \  
+4 & 2 & 0 \\  
+0 & 8 & 1 \\  
 0 & 1 & 0  
 \end{pmatrix}  
 ·  
 \begin{pmatrix}  
-4 & 2 & 1 \  
-2 & 0 & 4 \  
+4 & 2 & 1 \\  
+2 & 0 & 4 \\  
 9 & 4 & 2  
 \end{pmatrix}
 
 \begin{pmatrix}  
-20 & 8 & 12 \  
-25 & 4 & 34 \  
+20 & 8 & 12 \\  
+25 & 4 & 34 \\  
 2 & 0 & 4  
 \end{pmatrix}  
 $$

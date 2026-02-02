@@ -10,28 +10,28 @@ Given two matrices of equal size:
 $$  
 A =  
 \begin{pmatrix}  
-1 & 2 \  
+1 & 2 \\  
 3 & 4  
 \end{pmatrix},  
 \quad  
 B =  
 \begin{pmatrix}  
-5 & 6 \  
+5 & 6 \\  
 7 & 8  
 \end{pmatrix}  
 $$
 
 their sum is:
 
-# $$  
-A + B =  
+  
+$$ A + B =  
 \begin{pmatrix}  
-1+5 & 2+6 \  
+1+5 & 2+6 \\  
 3+7 & 4+8  
 \end{pmatrix}
 
 \begin{pmatrix}  
-6 & 8 \  
+6 & 8 \\  
 10 & 12  
 \end{pmatrix}  
 $$
@@ -58,15 +58,15 @@ $$
 
 then:
 
-# $$  
+$$  
 A - B =  
 \begin{pmatrix}  
-4-2 & 2-4 \  
+4-2 & 2-4 \\  
 1-0 & 6-1  
 \end{pmatrix}
 
 \begin{pmatrix}  
-2 & -2 \  
+2 & -2 \\  
 1 & 5  
 \end{pmatrix}  
 $$
