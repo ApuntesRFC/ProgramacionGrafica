@@ -249,11 +249,76 @@ sequenceDiagram
 
 ---
 
+## Clase Buffer en el motor
+
+En el motor que desarrollamos en la asignatura, se crea una clase `Buffer` para **encapsular** los datos de geometría:
+
+- Un objeto de la clase Buffer encapsulará tanto un **buffer de vértices** como uno de **índices**. Se crearán en el constructor a partir de dos arrays con los datos.
+- Existirá un método `drawGL` para dibujar los datos del buffer en pantalla, que recibirá el **shader** que debe ser utilizado para el pintado.
+
+```cpp
+class Buffer {
+public:
+    unsigned int vao, vbo, ebo;
+    Buffer(vector<vertex_t>& vertices, vector<unsigned int>& indices);
+    void drawGL(Shader* shader);
+};
+```
+
+> [!info] Relación con `bufferObject_t` del Render
+> En la implementación actual, la estructura `bufferObject_t` dentro del `Render` cumple una función similar, agrupando VAO/VBO/EBO por objeto.
+> Ver: [[Render#setupObject — Subir datos a la GPU]]
+
+---
+
+## Tipos de primitivas
+
+Los vértices pueden definir distintos tipos de primitivas. En esta asignatura trabajaremos con **triángulos**, aunque existen otros tipos:
+
+### Primitivas de puntos y líneas
+
+| Primitiva | Descripción |
+|-----------|-------------|
+| `GL_POINTS` | Cada vértice dibuja un **punto** |
+| `GL_LINES` | Cada **par** de vértices dibuja una línea independiente |
+| `GL_LINE_STRIP` | Dibuja líneas conectadas: punto $n$ → punto $n+1$ |
+| `GL_LINE_LOOP` | Como `GL_LINE_STRIP` pero conectando **último con primero** (forma cerrada) |
+
+### Primitivas de triángulos
+
+| Primitiva | Descripción |
+|-----------|-------------|
+| `GL_TRIANGLES` | Cada **3 vértices** dibujan un triángulo independiente |
+| `GL_TRIANGLE_STRIP` | Cada triángulo comparte los **2 últimos vértices** del anterior |
+| `GL_TRIANGLE_FAN` | Todos los triángulos comparten el **primer vértice** (abanico) |
+
+```
+GL_TRIANGLES:              GL_TRIANGLE_STRIP:        GL_TRIANGLE_FAN:
+  1───2   4───5              1───3───5                   1
+  │ ╱ │   │ ╱ │              │ ╲ │ ╱ │                  ╱│╲
+  │╱  │   │╱  │              │  ╲│╱  │                 ╱ │ ╲
+  0   3   3   6              0───2───4               0──...──2
+(independientes)          (comparten vértices)     (comparten v0)
+```
+
+> [!tip] ¿Cuándo usar cada tipo?
+> - `GL_TRIANGLES` es el más flexible y el más usado en motores modernos
+> - `GL_TRIANGLE_STRIP` ahorra memoria en mallas continuas
+> - `GL_TRIANGLE_FAN` es útil para formas circulares/cónicas
+>
+> Ver más: [[Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL/Shapes and Colors|Shapes and Colors]]
+> Ver también: [[Learn OpenGL/3. Hello Triangle/Making the Triangle|Making the Triangle]]
+
+---
+
 ## Véase también
 
 - [[Render]] — Donde se crean y usan estos buffers
 - [[Object3D]] — Los datos que se suben a los buffers
+- [[Cauce Gráfico]] — El pipeline que procesa estos datos
+- [[Transformaciones]] — Las matrices que se aplican a los vértices
 - [[Learn OpenGL/3. Hello Triangle/Vertex Input|Vertex Input]]
 - [[Learn OpenGL/3. Hello Triangle/Vertex Array Object|Vertex Array Object]]
 - [[Learn OpenGL/3. Hello Triangle/Element Buffer Objects|Element Buffer Objects]]
 - [[Learn OpenGL/3. Hello Triangle/Linking Vertex Attributes|Linking Vertex Attributes]]
+- [[Learn OpenGL/1. Theory/Objects|Objects (OpenGL Object Pattern)]]

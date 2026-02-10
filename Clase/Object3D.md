@@ -242,3 +242,5 @@ Ver explicación detallada en: [[Movimiento de Objetos]]
 - [[Buffers (VAO, VBO, EBO)]] — Cómo se suben estos datos a la GPU
 - [[Render]] — Cómo se dibujan los objetos
 - [[Movimiento de Objetos]] — Detalle del movimiento con delta time
+- [[Transformaciones]] — Teoría de matrices y coordenadas homogéneas
+- [[Cauce Gráfico]] — El pipeline gráfico que procesa estos datos

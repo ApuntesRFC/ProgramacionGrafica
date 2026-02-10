@@ -324,4 +324,6 @@ En la segunda clase, este código evoluciona a una **arquitectura orientada a ob
 - [[Buffers (VAO, VBO, EBO)]] — Memoria en la GPU
 - [[Game Loop y Delta Time]] — Bucle principal con tiempo consistente
 - [[Movimiento de Objetos]] — Transformaciones con input
+- [[Cauce Gráfico]] — El pipeline gráfico completo
+- [[Transformaciones]] — Matrices y coordenadas homogéneas
 

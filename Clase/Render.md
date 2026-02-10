@@ -326,6 +326,82 @@ Ver explicación detallada del bucle en: [[Game Loop y Delta Time]]
 
 ---
 
+## Pintado — Limpieza de buffers
+
+Antes de dibujar cada frame, es necesario **limpiar** los buffers de la GPU:
+
+### `glClearColor`
+
+```cpp
+void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
+```
+
+Define el **color** con el que se limpiará el color buffer. Normalmente se llama una vez al inicio y se limpia antes de pintar cada frame.
+
+### `glClear`
+
+```cpp
+void glClear(GLbitfield mask);
+```
+
+Limpia el buffer pasado como parámetro. Se pueden **combinar** con el operador `|`:
+
+| Flag | Buffer | Descripción |
+|------|--------|-------------|
+| `GL_COLOR_BUFFER_BIT` | Color / backbuffer | Los píxeles de color del frame anterior |
+| `GL_DEPTH_BUFFER_BIT` | Profundidad (Z-buffer) | Los valores de profundidad de cada píxel |
+| `GL_STENCIL_BUFFER_BIT` | Stencil / recorte | Máscara de recorte (no lo utilizamos) |
+
+```cpp
+// Uso típico: limpiar color y profundidad
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+```
+
+> [!info] ¿Por qué limpiar el depth buffer?
+> Sin limpiar el depth buffer, los valores de profundidad del frame anterior persistirían y los objetos podrían quedar ocultos incorrectamente.
+> Ver más: [[Learn OpenGL/2. Create a Window/Rendering|Rendering]]
+> Ver también: [[Learn OpenGL/7. Coordinate Systems/Z-Buffer|Z-Buffer]]
+
+---
+
+## Modos de pintado
+
+Cuando se realiza el pintado de elementos, OpenGL tiene dos modos:
+
+| Modo | Descripción | Perfil |
+|------|-------------|--------|
+| **Flujo de pintado fijo** | Las operaciones de transformación de vértices y rasterizado de fragmentos está **preestablecida** (no modificable) | Compatibility Profile |
+| **Shaders** | Codificamos la transformación en un **vertex shader** y el rasterizado en un **fragment shader** | Core Profile |
+
+El flujo de pintado fijo se utiliza únicamente en el **perfil de compatibilidad**, así que nos limitaremos a renderizado con shaders.
+
+```mermaid
+graph LR
+    subgraph "Pipeline Fijo (Legacy)"
+        A1["Vértices"] --> B1["Transformación fija"]
+        B1 --> C1["Rasterizado fijo"]
+        C1 --> D1["Píxeles"]
+    end
+    
+    subgraph "Pipeline Programable (Shaders)"
+        A2["Vértices"] --> B2["Vertex Shader<br/>(programable)"]
+        B2 --> C2["Fragment Shader<br/>(programable)"]
+        C2 --> D2["Píxeles"]
+    end
+```
+
+> [!important] Core Profile vs Compatibility Profile
+> - **Compatibility Profile**: incluye las funciones legacy (`glBegin`, `glEnd`, `glVertex`, `glPushMatrix`...). Nuestro código actual usa algunas de estas.
+> - **Core Profile**: solo funciones modernas. Requiere shaders obligatoriamente.
+>
+> Ver más: [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
+> Ver también: [[Learn OpenGL/4. Shaders/GLSL|GLSL]]
+> Ver también: [[Learn OpenGL/3. Hello Triangle/Vertex Shader|Vertex Shader]]
+> Ver también: [[Learn OpenGL/3. Hello Triangle/Fragment Shader|Fragment Shader]]
+> Ver también: [[Cauce Gráfico]] — El pipeline completo
+
+---
+
 ## Flujo completo de un frame
 
 ```mermaid
@@ -350,3 +426,8 @@ graph TD
 - [[Buffers (VAO, VBO, EBO)]] — Detalle de los buffer objects
 - [[Game Loop y Delta Time]] — El patrón del bucle principal
 - [[Movimiento de Objetos]] — Cómo se mueven los objetos
+- [[Cauce Gráfico]] — El pipeline gráfico completo
+- [[Transformaciones]] — Matrices y coordenadas homogéneas
+- [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
+- [[Learn OpenGL/1. Theory/State Machine|State Machine]]
+- [[Learn OpenGL/2. Create a Window/Rendering|Rendering]]

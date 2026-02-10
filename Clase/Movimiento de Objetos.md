@@ -205,6 +205,8 @@ Actualmente solo soportamos **traslación** en Y con W/S. Posibles mejoras:
 - [[Object3D]] — La clase completa del objeto
 - [[Game Loop y Delta Time]] — Cómo funciona el delta time
 - [[Render]] — Cómo se aplica la model matrix al dibujar
+- [[Transformaciones]] — Teoría de matrices de traslación, rotación y escalado
+- [[Cauce Gráfico]] — El pipeline donde se aplican las transformaciones
 - [[Learn OpenGL/6. Transformations/Translation|Translation]]
 - [[Learn OpenGL/7. Coordinate Systems/Local Space|Local Space]]
 - [[Learn OpenGL/7. Coordinate Systems/World Space|World Space]]

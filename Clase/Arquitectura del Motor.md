@@ -166,3 +166,5 @@ Son dos pasos porque:
 - [[Buffers (VAO, VBO, EBO)]] — Por qué necesitamos buffers en GPU
 - [[Game Loop y Delta Time]] — El bucle principal y tiempo consistente
 - [[Movimiento de Objetos]] — Transformaciones y movimiento con input
+- [[Cauce Gráfico]] — El pipeline gráfico y sus generaciones
+- [[Transformaciones]] — Fundamentos matemáticos de las transformaciones

@@ -179,4 +179,5 @@ if (!initialized || window == nullptr) {
 - [[Render]] — El mainLoop completo
 - [[Movimiento de Objetos]] — Cómo se usa el delta time para mover
 - [[Arquitectura del Motor]] — Visión general
+- [[Cauce Gráfico]] — El pipeline que se ejecuta cada frame
 - [[Learn OpenGL/2. Create a Window/Render Loop|Render Loop]]
