@@ -1,4 +1,4 @@
-﻿> [!summary]  
+> [!summary]  
 > A **camera class** encapsulates all camera logic into a reusable object.  
 > This keeps rendering code clean and makes the camera easy to use across multiple projects.
 

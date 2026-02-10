@@ -279,14 +279,16 @@ static std::map<int,bool> keyMap;
 
 ```mermaid
 graph TD
-        A[Usuario presiona tecla]
-        B[GLFW detecta evento]
-        A --> B
-        C[Callback keyboardManager]
-        D[Actualiza keyMap]
-        E[main consulta keyMap]
-        C --> D --> E
+    A[Usuario presiona tecla]
+    B[GLFW detecta evento]
+    C[Callback keyboardManager]
+    D[Actualiza keyMap]
+    E[main consulta keyMap]
+    
+    A --> B
     B --> C
+    C --> D
+    D --> E
 ```
 
 ---
@@ -309,3 +311,17 @@ graph TD
 
 > [!tip]
 > El `#define GLAD_BIN` al inicio indica que la implementación de GLAD se incluye en este archivo. Solo debe aparecer en **una unidad de traducción**. 
+
+---
+
+## Siguiente clase
+
+En la segunda clase, este código evoluciona a una **arquitectura orientada a objetos** con clases separadas para renderizado y geometría:
+
+- [[Arquitectura del Motor]] — Cómo se reorganiza el proyecto
+- [[Object3D]] — Representación de objetos 3D
+- [[Render]] — Sistema de renderizado con buffers GPU
+- [[Buffers (VAO, VBO, EBO)]] — Memoria en la GPU
+- [[Game Loop y Delta Time]] — Bucle principal con tiempo consistente
+- [[Movimiento de Objetos]] — Transformaciones con input
+
