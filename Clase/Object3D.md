@@ -182,14 +182,15 @@ matrix4x4f Object3D::computeModelMatrix() {
 La **model matrix** transforma las coordenadas **locales** del objeto a coordenadas del **mundo**.
 
 > [!info] ¿Qué hace `make_translate`?
-> Genera una matriz de traslación 4×4:
+> Es una función de nuestra biblioteca `libMath` que genera una matriz de traslación 4×4:
 >
 > $$
 > T = \begin{pmatrix} 1 & 0 & 0 & t_x \\ 0 & 1 & 0 & t_y \\ 0 & 0 & 1 & t_z \\ 0 & 0 & 0 & 1 \end{pmatrix}
 > $$
 >
 > Multiplicar esta matriz por un vértice mueve su posición en $(t_x, t_y, t_z)$.
-> Ver más: [[Learn OpenGL/6. Transformations/Translation|Translation]]
+> Ver más: [[Transformaciones#Matriz de traslación]]
+> Ver también: [[Transformaciones#Biblioteca libMath del motor]]
 
 ### Flujo de transformación
 
@@ -199,11 +200,15 @@ graph LR
 ```
 
 > [!tip] Extensibilidad
-> Actualmente solo se aplica traslación. Para añadir **rotación** y **escala**, se multiplicarían más matrices:
+> Actualmente solo se aplica traslación. Para añadir **rotación** y **escala**, se multiplicarían más matrices usando las funciones de `libMath`:
 > ```cpp
-> model = translate * rotate * scale;  // Orden: escala → rota → traslada
+> model = make_translate(pos.x, pos.y, pos.z) 
+>       * make_rotate(angleX, angleY, angleZ) 
+>       * make_scale(sx, sy, sz);
 > ```
-> Ver más: [[Learn OpenGL/6. Transformations/Combining matrices|Combining matrices]]
+> Ver más sobre las funciones matemáticas: [[Transformaciones#Biblioteca libMath del motor]]
+> Ver técnicas avanzadas: [[Learn OpenGL/6. Transformations/Combining matrices|Combining matrices]]
+> Ver también: [[Learn OpenGL/6. Transformations/GLM|GLM]]
 
 ---
 

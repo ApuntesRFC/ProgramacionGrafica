@@ -136,7 +136,9 @@ $$
 
 > [!info] Coordenadas homogéneas
 > El `1` en la cuarta componente (`w = 1`) es lo que permite que la traslación funcione. Si `w = 0`, la traslación no tiene efecto (útil para vectores de dirección como normales).
-> Ver más: [[Learn OpenGL/6. Transformations/Translation|Translation]]
+> Ver más: [[Transformaciones#Matriz de traslación]]
+> Ver también: [[Transformaciones#Biblioteca libMath del motor]]
+> Ver también: [[Learn OpenGL/6. Transformations/Translation|Translation]]
 
 ---
 
@@ -185,18 +187,22 @@ Actualmente solo soportamos **traslación** en Y con W/S. Posibles mejoras:
 |--------|-----------------|
 | Movimiento en X | Añadir A/D con `position.x +=` |
 | Movimiento en Z | Añadir Q/E con `position.z +=` |
-| Rotación | Añadir `rotation` y multiplicar `translate × rotate` |
-| Escala | Añadir `scale` y multiplicar `translate × rotate × scale` |
+| Rotación | Añadir `rotation` vec3 y usar `make_rotate(angleX, angleY, angleZ)` |
+| Escala | Añadir `scale` vec3 y usar `make_scale(sx, sy, sz)` |
+| Rotación suave | Usar cuaterniones con `make_quaternion` y `make_rotate_quaternion` |
 | Velocidad variable | Hacer `speed` un miembro de la clase |
 | Aceleración | Añadir `velocity` y aplicar aceleración |
 
 > [!tip] Orden de transformaciones
-> Al combinar matrices, el orden importa:
+> Al combinar matrices, el orden importa. Usando las funciones de `libMath`:
 > ```cpp
-> model = translate * rotate * scale;  // TRS order
+> model = make_translate(pos.x, pos.y, pos.z) 
+>       * make_rotate(angleX, angleY, angleZ) 
+>       * make_scale(sx, sy, sz);  // TRS order
 > ```
 > Se aplican de **derecha a izquierda**: primero escala, luego rota, luego traslada.
-> Ver más: [[Learn OpenGL/6. Transformations/Combining matrices|Combining matrices]]
+> Ver más: [[Transformaciones#Biblioteca libMath del motor]]
+> Ver también: [[Learn OpenGL/6. Transformations/Combining matrices|Combining matrices]]
 
 ---
 

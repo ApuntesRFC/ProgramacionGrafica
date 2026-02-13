@@ -236,6 +236,20 @@ sequenceDiagram
 └─────────────────────────────────────────────────────┘
 ```
 
+> [!info] Configuración de atributos al dibujar
+> Los atributos se configuran con punteros que le dicen a OpenGL dónde están en el VBO:
+> ```cpp
+> glEnableClientState(GL_VERTEX_ARRAY);
+> glEnableClientState(GL_COLOR_ARRAY);
+> glVertexPointer(4, GL_FLOAT, 32, (void*)0);   // offset 0
+> glColorPointer(4, GL_FLOAT, 32, (void*)16);   // offset 16
+> ```
+> - **stride = 32** → Distancia entre vértices consecutivos
+> - **offset = 0/16** → Dónde empieza cada atributo dentro de cada vértice
+> 
+> Ver más detalles: [[Render#Configuración de matrices (Legacy OpenGL)]]
+> Ver también: [[Learn OpenGL/3. Hello Triangle/Linking Vertex Attributes|Linking Vertex Attributes]]
+
 ---
 
 ## Relación con el código del proyecto

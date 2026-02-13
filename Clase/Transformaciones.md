@@ -221,6 +221,157 @@ matrix4x4f Object3D::computeModelMatrix() {
 
 ---
 
+---
+
+## Biblioteca libMath del motor
+
+El motor incluye una biblioteca matemática personalizada (`libMath`) con funciones para trabajar con vectores, matrices y transformaciones.
+
+### Operaciones con vectores
+
+#### Crear un vector
+
+```cpp
+vec4float make_vector4f(float x, float y, float z, float w);
+```
+
+#### Normalizar (obtener vector unitario)
+
+```cpp
+vec4float normalize(vec4float v);
+// Retorna un vector de longitud 1 en la misma dirección
+```
+
+$$\vec{v}_{norm} = \frac{\vec{v}}{|\vec{v}|} = \frac{\vec{v}}{\sqrt{x^2 + y^2 + z^2}}$$
+
+#### Producto escalar (dot product)
+
+```cpp
+float dot(vec4float v1, vec4float v2);
+```
+
+$$\vec{v_1} \cdot \vec{v_2} = v_{1x} \cdot v_{2x} + v_{1y} \cdot v_{2y} + v_{1z} \cdot v_{2z}$$
+
+> [!info] ¿Para qué sirve el producto escalar?
+> - Calcular el ángulo entre vectores: $\cos(\theta) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}$
+> - Proyección de un vector sobre otro
+> - Calcular iluminación (Lambertian: $I = \vec{N} \cdot \vec{L}$)
+
+#### Producto vectorial (cross product)
+
+```cpp
+vec4float cross(vec4float v1, vec4float v2);
+```
+
+$$\vec{v_1} \times \vec{v_2} = \begin{pmatrix} v_{1y}v_{2z} - v_{1z}v_{2y} \\ v_{1z}v_{2x} - v_{1x}v_{2z} \\ v_{1x}v_{2y} - v_{1y}v_{2x} \end{pmatrix}$$
+
+> [!info] ¿Para qué sirve el producto vectorial?
+> - Obtener un vector **perpendicular** a dos vectores dados
+> - Calcular **normales** de superficies a partir de dos aristas
+> - Determinar si un punto está a la izquierda o derecha de un vector (signo del producto)
+
+---
+
+### Operaciones con matrices
+
+#### Matriz identidad
+
+```cpp
+matrix4x4f make_identityf();
+```
+
+Genera la matriz identidad 4×4 (elemento neutro de la multiplicación).
+
+#### Matriz de traslación
+
+```cpp
+matrix4x4f make_translate(float X, float Y, float Z);
+```
+
+Crea una matriz que traslada $(t_x, t_y, t_z)$. Ver: [[#Matriz de traslación]]
+
+#### Matriz de escalado
+
+```cpp
+matrix4x4f make_scale(float X, float Y, float Z);
+```
+
+Crea una matriz que escala $(s_x, s_y, s_z)$. Ver: [[#Matriz de escalado]]
+
+#### Matriz de rotación (Euler)
+
+```cpp
+matrix4x4f make_rotate(float angleX, float angleY, float angleZ);
+```
+
+Crea una matriz de rotación combinada usando ángulos de **Euler** (en grados). Aplica rotaciones en orden: Z → Y → X.
+
+> [!warning] Gimbal Lock
+> Las rotaciones con ángulos de Euler pueden sufrir **gimbal lock** (pérdida de un grado de libertad) en ciertas configuraciones. Para animaciones complejas, es mejor usar **cuaterniones**.
+
+#### Transpuesta
+
+```cpp
+matrix4x4f transpose(matrix4x4f m);
+```
+
+Intercambia filas por columnas: $M^T[i][j] = M[j][i]$
+
+> [!info] ¿Cuándo se usa?
+> - Para invertir rotaciones (si la matriz es ortogonal): $R^{-1} = R^T$
+> - Convertir entre row-major y column-major
+> - Cálculos de normales transformadas
+
+#### Inversa
+
+```cpp
+matrix4x4f inverse(matrix4x4f m);
+```
+
+Calcula la matriz inversa: $M \cdot M^{-1} = I$
+
+> [!warning]
+> Si el determinante es 0 (matriz singular), la función retorna la identidad. Siempre verifica que tu matriz sea invertible.
+
+> [!info] ¿Cuándo se usa?
+> - Calcular la **view matrix** a partir de la pose de la cámara: $V = C^{-1}$
+> - Transformar vectores del espacio transformado al original
+> - Resolver sistemas de ecuaciones lineales
+>
+> Ver: [[Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Modelview Transformation|Modelview Transformation]]
+
+---
+
+### Cuaterniones
+
+#### Crear cuaternión desde eje-ángulo
+
+```cpp
+vec4float make_quaternion(float x, float y, float z, float angle);
+```
+
+Crea un cuaternión que representa una rotación de `angle` radianes alrededor del eje $(x, y, z)$.
+
+$$q = \begin{pmatrix} axis_x \sin(\frac{\theta}{2}) \\ axis_y \sin(\frac{\theta}{2}) \\ axis_z \sin(\frac{\theta}{2}) \\ \cos(\frac{\theta}{2}) \end{pmatrix}$$
+
+#### Convertir cuaternión a matriz
+
+```cpp
+matrix4x4f make_rotate_quaternion(vec4float q);
+```
+
+Convierte un cuaternión a matriz de rotación 4×4.
+
+> [!tip] Ventajas de los cuaterniones
+> - **No sufren gimbal lock**
+> - **Interpolación suave** entre rotaciones (SLERP)
+> - **Más eficientes** para concatenar rotaciones (multiplicación de quaternions)
+> - **Menos memoria** (4 floats vs 16 de una matriz)
+>
+> Por eso se usan en motores modernos para animaciones de personajes y cámaras.
+
+---
+
 ## La cadena completa de transformación
 
 Las transformaciones se encadenan en el cauce gráfico para pasar de espacio local a pantalla:

@@ -89,12 +89,34 @@ if (!glfwInit()) {
     std::cerr << "ERROR: Failed to initialize glfw" << std::endl;
     return -1;
 }
+glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
 glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 ```
 
 > [!info]
 > `glfwInit()` inicializa la librería GLFW. Debe llamarse **antes de cualquier otra función GLFW**.
 > Ver más en: [[Learn OpenGL/2. Create a Window/Start|Start]]
+
+### Window Hints - Configuración de OpenGL
+
+Antes de crear la ventana, usamos `glfwWindowHint` para configurar parámetros:
+
+| Hint | Valor | Descripción |
+|------|-------|-------------|
+| `GLFW_CONTEXT_VERSION_MAJOR` | `3` | Versión mayor de OpenGL (3.x) |
+| `GLFW_CONTEXT_VERSION_MINOR` | `3` | Versión menor de OpenGL (x.3) |
+| `GLFW_OPENGL_PROFILE` | `GLFW_OPENGL_COMPAT_PROFILE` | Perfil de compatibilidad |
+| `GLFW_RESIZABLE` | `GL_FALSE` | Ventana no redimensionable |
+
+> [!important] OpenGL 3.3 Compatibility Profile
+> Pedimos **OpenGL 3.3** en **compatibility profile**. Esto permite:
+> - Usar funciones **modernas** (VAO, VBO, shaders)
+> - Usar funciones **legacy** (`glBegin/glEnd`, `glPushMatrix`, client state arrays)
+>
+> Si pidiéramos **core profile**, las funciones legacy estarían **prohibidas**.
+> Ver más: [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
 
 El hint `GLFW_RESIZABLE` desactiva el redimensionado de la ventana.
 

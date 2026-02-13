@@ -67,6 +67,11 @@ Render::Render() {
         std::cerr << "ERROR: Failed to initialize glfw" << std::endl;
         return;
     }
+    
+    // Configurar versión de OpenGL
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     // 2. Crear ventana
@@ -97,13 +102,23 @@ Render::Render() {
 > - **Verificar** el estado con `initialized`
 > - Potencialmente crear **múltiples ventanas** (múltiples Render)
 
+> [!info] Window Hints de OpenGL
+> Antes de crear la ventana, configuramos la **versión de OpenGL** que queremos usar:
+> - `GLFW_CONTEXT_VERSION_MAJOR/MINOR` → OpenGL 3.3
+> - `GLFW_OPENGL_PROFILE` → `COMPAT_PROFILE` (compatibility profile)
+> 
+> El **compatibility profile** permite usar funciones legacy (`glBegin/glEnd`, `glPushMatrix`, etc.) junto con shaders modernos. El **core profile** solo permite shaders.
+> Ver más: [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
+> Ver también: [[Learn OpenGL/2. Create a Window/Start|Start]]
+
 ### Flujo de inicialización
 
 ```mermaid
 graph TD
     A[Render::Render] --> B{glfwInit?}
     B -->|Falla| X[return sin initialized]
-    B -->|OK| C[Crear ventana]
+    B -->|OK| B2["Configurar hints<br/>(OpenGL 3.3 Compat)"]
+    B2 --> C[Crear ventana]
     C --> D{¿Ventana OK?}
     D -->|Falla| X
     D -->|OK| E[gladLoadGL]
@@ -185,42 +200,72 @@ void Render::drawObjects() {
         // 1. Recuperar buffers de este objeto
         auto bo = bufferedObjectList[obj->objectId];
         
-        // 2. Bind de buffers
+        // 2. Cargar matriz de modelo (legacy OpenGL)
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        matrix4x4f model = obj->computeModelMatrix();
+        glLoadMatrixf(model.mat);
+        
+        // 3. Bind de buffers
         glBindVertexArray(bo.bufferId);
         glBindBuffer(GL_ARRAY_BUFFER, bo.vertexBufferId);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bo.indexBufferId);
-        
-        // 3. Transformación (legacy OpenGL)
-        matrix4x4f model = obj->computeModelMatrix();
-        glPushMatrix();
-        glLoadIdentity();
 
-        // 4. Configurar atributos de vértice y dibujar
+        // 4. Configurar atributos de vértice
         glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_COLOR_ARRAY);
         glVertexPointer(4, GL_FLOAT, sizeof(vertex_t), 
                        (void*)offsetof(vertex_t, position));
+        glColorPointer(4, GL_FLOAT, sizeof(vertex_t), 
+                      (void*)offsetof(vertex_t, color));
+        
+        // 5. Dibujar
         glDrawElements(GL_TRIANGLES, obj->indexList.size(), 
                       GL_UNSIGNED_INT, nullptr);
         
-        // 5. Limpiar estado
-        glPopMatrix();
+        // 6. Limpiar estado
+        glDisableClientState(GL_COLOR_ARRAY);
         glDisableClientState(GL_VERTEX_ARRAY);
+        glBindVertexArray(0);
     }
 }
 ```
 
-### Desglose de `glVertexPointer`
+### Configuración de matrices (Legacy OpenGL)
+
+```cpp
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+matrix4x4f model = obj->computeModelMatrix();
+glLoadMatrixf(model.mat);
+```
+
+| Función | Descripción |
+|----------|-------------|
+| `glMatrixMode(GL_MODELVIEW)` | Selecciona la **matriz modelview** como activa |
+| `glLoadIdentity()` | Resetea la matriz a la **identidad** |
+| `glLoadMatrixf(model.mat)` | Carga nuestra matriz de modelo en OpenGL |
+
+> [!note] GL_MODELVIEW vs GL_PROJECTION
+> OpenGL legacy mantiene dos pilas de matrices:
+> - `GL_MODELVIEW` → transformaciones del objeto y cámara
+> - `GL_PROJECTION` → proyección (perspectiva/ortográfica)
+> 
+> Ver más: [[Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Modelview Transformation|Modelview Transformation]]
+
+### Desglose de `glVertexPointer` y `glColorPointer`
 
 ```cpp
 glVertexPointer(4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, position));
+glColorPointer(4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, color));
 ```
 
-| Parámetro | Valor | Significado |
-|-----------|-------|-------------|
-| `size` | `4` | Cada posición tiene 4 componentes (x, y, z, w) |
-| `type` | `GL_FLOAT` | Cada componente es un float |
-| `stride` | `sizeof(vertex_t)` | Distancia entre un vértice y el siguiente (32 bytes) |
-| `pointer` | `offsetof(vertex_t, position)` | Offset del atributo position dentro del struct (0 bytes) |
+| Parámetro | `glVertexPointer` | `glColorPointer` | Significado |
+|-----------|-------------------|------------------|-------------|
+| `size` | `4` | `4` | 4 componentes (x,y,z,w / r,g,b,a) |
+| `type` | `GL_FLOAT` | `GL_FLOAT` | Cada componente es un float |
+| `stride` | `sizeof(vertex_t)` | `sizeof(vertex_t)` | Distancia entre vértices (32 bytes) |
+| `pointer` | `offsetof(vertex_t, position)` | `offsetof(vertex_t, color)` | Offset dentro del struct (0 y 16 bytes) |
 
 > [!info] ¿Qué es el stride?
 > El **stride** le dice a OpenGL cuántos bytes saltar para llegar al siguiente vértice. Como nuestro `vertex_t` tiene position (16 bytes) + color (16 bytes) = 32 bytes, OpenGL sabe que cada 32 bytes empieza un nuevo vértice.
@@ -229,7 +274,12 @@ glVertexPointer(4, GL_FLOAT, sizeof(vertex_t), (void*)offsetof(vertex_t, positio
 > Memoria del VBO:
 > [pos0][col0][pos1][col1][pos2][col2]...
 >  ←─ stride ─→
+> 
+> glVertexPointer apunta a pos0, pos1, pos2... (offset 0)
+> glColorPointer apunta a col0, col1, col2... (offset 16)
 > ```
+>
+> Ver más: [[Learn OpenGL/3. Hello Triangle/Linking Vertex Attributes|Linking Vertex Attributes]]
 
 ### `glDrawElements` — Dibujo indexado
 
@@ -253,20 +303,29 @@ glDrawElements(GL_TRIANGLES, obj->indexList.size(), GL_UNSIGNED_INT, nullptr);
 
 ---
 
-### Sobre `glPushMatrix` / `glPopMatrix`
+### Client State Arrays
 
 ```cpp
-glPushMatrix();
-glLoadIdentity();
-// ... dibujar ...
-glPopMatrix();
+glEnableClientState(GL_VERTEX_ARRAY);
+glEnableClientState(GL_COLOR_ARRAY);
+// ... configurar punteros y dibujar ...
+glDisableClientState(GL_COLOR_ARRAY);
+glDisableClientState(GL_VERTEX_ARRAY);
 ```
 
 > [!warning] API Legacy (Compatibility Profile)
-> `glPushMatrix` y `glPopMatrix` son parte del **pipeline fijo** de OpenGL (pre-3.0). Guardan y restauran la matriz de transformación actual para que un objeto no afecte a otro.
+> `glEnableClientState` / `glDisableClientState` son parte del **pipeline fijo** de OpenGL. Activan/desactivan arrays de atributos:
+> - `GL_VERTEX_ARRAY` → posiciones
+> - `GL_COLOR_ARRAY` → colores
+> - `GL_NORMAL_ARRAY` → normales (para iluminación)
+> - `GL_TEXTURE_COORD_ARRAY` → coordenadas de textura
 >
-> En OpenGL moderno esto se reemplaza con **shaders** y **uniforms**.
-> Ver más: [[Learn OpenGL/3. Hello Triangle/Vertex Shader|Vertex Shader]]
+> En OpenGL moderno (Core Profile) esto se reemplaza con:
+> - `glEnableVertexAttribArray` / `glDisableVertexAttribArray`
+> - **Shaders** con atributos de entrada personalizados
+> 
+> Ver más: [[Learn OpenGL/3. Hello Triangle/Linking Vertex Attributes|Linking Vertex Attributes]]
+> Ver también: [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
 
 ---
 
