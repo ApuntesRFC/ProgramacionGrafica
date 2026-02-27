@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > La clase `Object3D` encapsula toda la información de un objeto 3D: sus **vértices** (posición + color), sus **índices** (qué vértices forman triángulos), y su **posición** en el mundo. También calcula su propia **matriz de modelo** para transformaciones.
 >
 > Conceptos clave:
@@ -249,3 +249,4 @@ Ver explicación detallada en: [[Movimiento de Objetos]]
 - [[Movimiento de Objetos]] — Detalle del movimiento con delta time
 - [[Transformaciones]] — Teoría de matrices y coordenadas homogéneas
 - [[Cauce Gráfico]] — El pipeline gráfico que procesa estos datos
+

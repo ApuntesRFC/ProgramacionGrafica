@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > La clase `Render` es el **motor gráfico** del proyecto. Se encarga de: inicializar GLFW/GLAD/ventana, subir datos de objetos a la GPU mediante buffers, dibujar todos los objetos registrados, y ejecutar el **game loop** con delta time.
 >
 > Conceptos clave:
@@ -490,3 +490,4 @@ graph TD
 - [[Learn OpenGL/1. Theory/Core Profile vs Immediate Mode|Core Profile vs Immediate Mode]]
 - [[Learn OpenGL/1. Theory/State Machine|State Machine]]
 - [[Learn OpenGL/2. Create a Window/Rendering|Rendering]]
+

@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > Las **transformaciones** son operaciones matemáticas que permiten mover, escalar y rotar objetos en el espacio 3D. Se representan mediante **coordenadas homogéneas** y **matrices 4×4**, que permiten combinar múltiples transformaciones en una sola operación.
 >
 > Conceptos clave:
@@ -417,3 +417,4 @@ $$
 - [[Learn OpenGL/6. Transformations/Rotation|Rotation]]
 - [[Learn OpenGL/6. Transformations/Combining matrices|Combining matrices]]
 - [[Computer Graphics/3. OpenGL Geometry/3.2 3D Coordinates and Transforms/Basic 3D Transforms|Basic 3D Transforms]]
+

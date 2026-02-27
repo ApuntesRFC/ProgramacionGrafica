@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > El movimiento de objetos se implementa modificando la **posición** del objeto en función del **input del usuario** y el **delta time**. La posición se traduce a una **model matrix** que transforma los vértices de espacio local a espacio mundo cada frame.
 >
 > Conceptos clave:
@@ -216,3 +216,4 @@ Actualmente solo soportamos **traslación** en Y con W/S. Posibles mejoras:
 - [[Learn OpenGL/6. Transformations/Translation|Translation]]
 - [[Learn OpenGL/7. Coordinate Systems/Local Space|Local Space]]
 - [[Learn OpenGL/7. Coordinate Systems/World Space|World Space]]
+

@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > Los **buffer objects** son bloques de memoria en la GPU donde almacenamos datos de vértices e índices. Usar buffers es fundamental porque la GPU no puede leer directamente la RAM del CPU; necesita tener los datos en su propia memoria (VRAM).
 >
 > Conceptos clave:
@@ -336,3 +336,4 @@ GL_TRIANGLES:              GL_TRIANGLE_STRIP:        GL_TRIANGLE_FAN:
 - [[Learn OpenGL/3. Hello Triangle/Element Buffer Objects|Element Buffer Objects]]
 - [[Learn OpenGL/3. Hello Triangle/Linking Vertex Attributes|Linking Vertex Attributes]]
 - [[Learn OpenGL/1. Theory/Objects|Objects (OpenGL Object Pattern)]]
+

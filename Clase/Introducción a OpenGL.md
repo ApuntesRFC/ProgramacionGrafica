@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > Primera clase práctica de OpenGL. Se crea una **ventana básica** con GLFW, se inicializa GLAD, y se implementa un **sistema de gestión de eventos** mediante callbacks para manejar el teclado.
 >
 > Conceptos clave:
@@ -11,7 +11,7 @@
 
 ## Archivos del proyecto
 
-El proyecto se divide en **tres archivos**:
+El proyecto se divide en **cuatro archivos principales**:
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -37,6 +37,9 @@ int main(int argc, char** argv)
         std::cerr << "ERROR: Failed to initialize glfw" << std::endl;
         return -1;
     }
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     GLFWwindow* window = glfwCreateWindow(800, 600, "Hello Triangle", nullptr, nullptr);
@@ -348,4 +351,5 @@ En la segunda clase, este código evoluciona a una **arquitectura orientada a ob
 - [[Movimiento de Objetos]] — Transformaciones con input
 - [[Cauce Gráfico]] — El pipeline gráfico completo
 - [[Transformaciones]] — Matrices y coordenadas homogéneas
+
 

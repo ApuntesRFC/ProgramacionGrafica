@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clase/Buffers (VAO, VBO, EBO).md",
+                "file": "Clase/Cámara y Proyección.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Buffers (VAO, VBO, EBO)"
+              "title": "Cámara y Proyección"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "gladLoadGL",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 356.5
   },
   "right": {
     "id": "c772b43392b4e18b",
@@ -175,14 +175,20 @@
   },
   "active": "98ebc606331f4536",
   "lastOpenFiles": [
-    "Clase/Game Loop y Delta Time.md",
-    "Clase/Movimiento de Objetos.md",
     "Clase/Cauce Gráfico.md",
-    "Clase/Transformaciones.md",
-    "Clase/Input.md",
-    "Clase/Buffers (VAO, VBO, EBO).md",
+    "Clase/Representación de Fronteras (B-Rep).md",
+    "Clase/Cámara y Proyección.md",
+    "Learn OpenGL/6. Transformations/Rotation.md",
     "Clase/Arquitectura del Motor.md",
+    "Clase/Transformaciones.md",
+    "Clase/Movimiento de Objetos.md",
+    "Computer Graphics/3. OpenGL Geometry/3.3 Projection and Viewing/Modelview Transformation.md",
+    "Learn OpenGL/6. Transformations/Combining matrices.md",
+    "Learn OpenGL/6. Transformations/GLM.md",
     "Clase/Introducción a OpenGL.md",
+    "Clase/Buffers (VAO, VBO, EBO).md",
+    "Clase/Game Loop y Delta Time.md",
+    "Clase/Input.md",
     "Learn OpenGL/1. Theory/OpenGL.md",
     "Clase/Render.md",
     "Clase/Object3D.md",
@@ -195,13 +201,7 @@
     "Learn OpenGL/2. Create a Window/Start.md",
     "Learn OpenGL/1. Theory/Setup Context.md",
     "Learn OpenGL/1. Theory/Objects.md",
-    "Learn OpenGL/1. Theory/State Machine.md",
-    "Learn OpenGL/1. Theory/Core Profile vs Immediate Mode.md",
-    "Learn OpenGL/8. Camera/Camera direction.md",
-    "Learn OpenGL/8. Camera/Camera Position.md",
     "desktop.ini",
-    "Learn OpenGL/8. Camera/Camera View Space.md",
-    "Learn OpenGL/8. Camera/Camera Class.md",
     "Learn OpenGL/9. Cameras",
     "Computer Graphics/3. OpenGL Geometry/3.1 Shapes and Colors in OpenGL/desktop.ini",
     "Computer Graphics/2. 2D Graphics/2.1 Pixels, Coordinates, and Colors, and/desktop.ini",

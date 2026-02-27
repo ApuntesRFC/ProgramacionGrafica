@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > El **cauce gráfico** (graphics pipeline) es la secuencia de etapas que transforman datos 3D en píxeles en pantalla. Ha evolucionado desde pipelines fijos hasta cauces completamente programables con shaders, permitiendo técnicas avanzadas como iluminación global y ray tracing en tiempo real.
 >
 > Conceptos clave:
@@ -193,3 +193,4 @@ graph TD
 - [[Learn OpenGL/3. Hello Triangle/Fragment Shader|Fragment Shader]]
 - [[Computer Graphics/1. Introduction/Elements of 3D Graphics|Elements of 3D Graphics]]
 - [[Computer Graphics/1. Introduction/Hardware and Software|Hardware and Software]]
+

@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > El **game loop** es el bucle principal que ejecuta cada frame de la aplicación: calcula el **delta time**, actualiza la lógica, procesa eventos, renderiza y muestra el resultado. El delta time garantiza que el movimiento sea **consistente** independientemente de los FPS.
 >
 > Conceptos clave:
@@ -181,3 +181,4 @@ if (!initialized || window == nullptr) {
 - [[Arquitectura del Motor]] — Visión general
 - [[Cauce Gráfico]] — El pipeline que se ejecuta cada frame
 - [[Learn OpenGL/2. Create a Window/Render Loop|Render Loop]]
+

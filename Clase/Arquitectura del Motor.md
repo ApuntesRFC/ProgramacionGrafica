@@ -1,4 +1,4 @@
-> [!summary]
+﻿> [!summary]
 > Segunda clase práctica. El proyecto evoluciona de un **main monolítico** a una **arquitectura orientada a objetos** con tres sistemas separados: `Render`, `Object3D` y `EventManager`. El `main.cpp` queda reducido a unas pocas líneas.
 >
 > Conceptos clave:
@@ -168,3 +168,4 @@ Son dos pasos porque:
 - [[Movimiento de Objetos]] — Transformaciones y movimiento con input
 - [[Cauce Gráfico]] — El pipeline gráfico y sus generaciones
 - [[Transformaciones]] — Fundamentos matemáticos de las transformaciones
+
