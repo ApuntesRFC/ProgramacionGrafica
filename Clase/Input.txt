@@ -1,0 +1,369 @@
+Tema 4: Shaders y programación
+en GPU
+Marcos Novalbos
+Marcos.novalbos@u-tad.com
+Utilización de APIs gráficas
+5
+▪ En este tema, abordaremos los shaders, el lenguaje GLSL, y cómo se
+introducen éstos en el pipeline de OpenGL.
+▪ Un shader es un programa compilable que se ejecuta en la GPU.
+▪ Permite hacer programables tareas de las que anteriormente se
+encargaba el pipeline fijo de la API de renderizado.
+▪ Los lenguajes de shaders más utilizados son:
+▪ Cg, de Nvidia, compatible con OpenGL y Direct3D.
+▪ HLSL, de Microsoft, compatible con Direct3D.
+▪ GLSL, del Khronos Group, compatible con OpenGL, OpenGL ES, WebGL y
+Vulkan.
+▪ En esta asignatura trataremos GLSL.
+Asignatura/Tema
+Shaders
+6
+Cauce gráfico
+▪En cada fase del cauce gráfico se pueden introducir
+programas que reescriban cómo se tratan los datos de
+entrada
+7
+▪ Ya hemos visto un esquema del funcionamiento
+del pipeline fijo de OpenGL.
+▪ Los vertex shaders permiten programar el proceso
+de transformación de los vértices.
+▪ Los geometry shaders, tessellation control shaders
+y tessellation evaluation shaders se encargan del
+ensamblado de fragmentos (permiten definir nuevas
+primitivas y modificar las existentes).
+▪ Los fragment shaders se encargan del proceso de
+coloreado y texturizado de fragmentos.
+▪ En la asignatura, veremos vertex y fragment
+shaders.
+▪ Cuando utilizamos shaders, es necesario definir
+varias etapas del proceso de renderizado, por lo
+que necesitaremos varios shaders (al menos el
+shader de vértices y el shader de fragmentos).
+▪ Toda la serie de shaders que definen un proceso
+de renderizado completo, sean del tipo que
+sean, forman un programa
+Asignatura/Tema
+Shaders
+8
+▪ Se debe escribir un programa y compilarlo usando la interfaz que
+ofrezca el driver de cada tarjeta:
+▪ Se deben especificar versiones de shader soportadas
+▪ Se deben definir las variables de entrada y salida del programa:
+▪ Shaders de vértices: Entran y salen vértices
+▪ Shaders de fragmentos: Entran "píxeles potenciales" y salen colores
+▪ Un programa estará formado por uno o varios shaders de distinto tipo.
+▪ Los shaders se compilan por separado
+▪ Se "linkan" para formar el programa final
+Asignatura/Tema
+Shaders
+9
+▪ GLuint glCreateProgram(void)
+▪ Al igual que los proyectos formados por varios archivos, hay que crear un
+programa de GPU a partir de varios archivos con código para shaders. Con esta
+función se crea un identificador de programa
+▪ void glDeleteProgram(GLuint program)
+▪ Elimina el programa pasado como parámetro.
+▪ void glAttachShader(GLuint program, GLuint shader)
+▪ Añade un shader (previamente compilado) al programa especificado. Debemos
+añadir al menos un vertex shader y un fragment shader.
+▪ void glLinkProgram(GLuint program)
+▪ Enlaza todos los shaders de un programa para crear el programa ejecutable final.
+▪ void glUseProgram(GLuint program)
+▪ Reemplaza las tareas del pipeline de renderizado de OpenGL por
+las definidas en el programa.
+Asignatura/Tema
+Shaders
+10
+▪ GLuint glCreateShader(GLenum shaderType)
+▪ Crea un nuevo shader. El valor de shaderType puede ser:
+▪ GL_VERTEX_SHADER
+▪ GL_FRAGMENT_SHADER
+▪ void glShaderSource(GLuint shader, GLsizei count, const GLchar
+**string, const GLint *length)
+▪ Asigna el código fuente de un shader
+▪ void glCompileShader(GLuint shader)
+▪ Compila el código fuente del shader asignado anteriormente
+▪ void glDeleteShader(GLuint shader)
+▪ Elimina un shader. Una vez que un shader ha sido enlazado en un programa,
+podemos eliminarlo.
+Asignatura/Tema
+Shaders
+11
+string code;
+std::ifstream f(file);
+if (f.is_open()) {
+code = std::string(std::istreambuf_iterator<char>(f), {});
+}
+else {
+std::cout << "ERROR: FICHERO NO ENCONTRADO " <<
+__FILE__ << ":" << __LINE__ << " " << file << "\n";
+}
+Asignatura/Tema
+Leyendo el código del shader
+12
+programID = glCreateProgram();
+int vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+glShaderSource(vertexShaderID , 1, &vertexCode, nullptr);
+glCompileShader(vertexShaderID );
+int fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+glShaderSource(fragmentShaderID , 1, &fragmentCode, nullptr);
+glCompileShader(fragmentShaderID );
+glAttachShader(programID, vertexShaderID );
+glAttachShader(programID, fragmentShaderID );
+glLinkProgram(programID);
+Asignatura/Tema
+Creando un programa
+13
+▪ Para saber si ha habido errores al compilar/linkar, podemos consultar el
+resultado de las operaciones anteriores. Para errores de compilación:
+GLint retCode;
+char errorLog[1024];
+GLint fragment_compiled;
+glGetShaderiv(shID, GL_COMPILE_STATUS, &fragment_compiled);
+if (fragment_compiled != GL_TRUE)
+{
+GLsizei log_length = 0;
+GLchar message[1024];
+glGetShaderInfoLog(shID, 1024, &log_length, message);
+std::cout << "ERROR " << fileName << "\n" << message << "\n\n";
+}
+Asignatura/Tema
+Shaders
+14
+▪ Errores de linkado:
+GLint program_linked;
+glGetProgramiv(prID, GL_LINK_STATUS, &program_linked);
+if (program_linked != GL_TRUE)
+{
+GLsizei log_length = 0;
+GLchar message[1024];
+glGetProgramInfoLog(prID, 1024, &log_length, message);
+std::cout << "ERROR "\n" << message << "\n\n";
+}
+Asignatura/Tema
+Shaders
+15
+▪ En el proceso de transformación de los vértices, se recibe cada vértice
+en el espacio del modelo, y debe devolverse en el espacio de
+proyección.
+▪ El vertex shader se ejecuta una vez por vértice.
+▪ Para realizar la transformación, se utilizan las matrices modelo, vista y
+proyección.
+▪ En muchos casos, se puede pasar al shader una matriz MVP con las
+tres transformaciones aplicadas.
+▪ Para calcular la iluminación, se suele trabajar en el espacio del observador,
+así que podemos pasar también una matriz MV
+Asignatura/Tema
+Vertex Shader
+16
+▪ Un ejemplo de shader que realiza la transformación de vértices estándar:
+#version 330
+uniform mat4 MVP;
+attribute vec4 vPos;
+void main() {
+gl_Position = MVP * vPos;
+}
+▪ gl_Position es una variable predefinida que define la posición final de un
+vértice del vertex shader.
+▪ Con attribute indicamos una variable que define datos de un vértice, y cuyo
+valor se lee del buffer de vértices enlazado.
+▪ Las variables de tipo uniform se usan como parámetros extra, copiados a
+cada instancia del vertex shader.
+Asignatura/Tema
+Vertex Shader
+17
+▪ Los programas linkados en GPU deben tener inicializadas sus variables
+"globales". Para ello se deben conseguir identificadores numéricos que
+sirven para indicar qué variables se quieren modificar en cada
+momento.
+▪ GLint glGetAttribLocation(GLuint program, const GLchar* name)
+▪ Devuelve la localización (el identificador) de la variable attribute llamada name del
+vertex shader del programa indicado. Si la variable no se ha encontrado, devolverá -
+1. Aunque hayamos definido una variable, si ésta no se utiliza en el shader, puede
+ser descartada por GLSL.
+▪ Se puede forzar la localización de una variable dentro del shader con layout.
+Ejemplo:
+layout(location=2) attribute vec3 pos;
+Asignatura/Tema
+Shaders
+18
+▪ Las variables de los shaders se inicializan desde CPU antes de invocar
+su ejecución. Para eso, es necesario conocer a priori sus nombres o su
+índice en el programa.
+▪ También se puede interrogar al programa compilado:
+▪ Obtener el número de variables de tipo uniform o atributos:
+▪ glGetProgramiv(programID, GL_ACTIVE_ATTRIBUTES, &count);
+▪ glGetProgramiv(programID, GL_ACTIVE_UNIFORMS, &count);
+▪ Obtener las características de esas variables (nombre, tipo, etc...):
+▪ glGetActiveAttrib(programID, (GLuint)idx, bufSize, &length, &size, &type, name);
+▪ glGetActiveUniform(programID, (GLuint)idx, bufSize, &length, &size, &type, name);
+▪ Obtener el índice de una variable en el shader compilado:
+▪ glGetAttribLocation(programID, varName)
+▪ glGetUniformLocation(programID, varName)
+Asignatura/Tema
+Shaders
+19
+void GLProgram::readVarList()
+{ int numAttributes = 0;
+int numUniforms = 0;
+glGetProgramiv(idProgram, GL_ACTIVE_ATTRIBUTES, &numAttributes);
+for (int i = 0; i < numAttributes; i++)
+{
+char varName[100];
+int bufSize = 100, length = 0, size = 0;
+GLenum type = -1;
+glGetActiveAttrib(idProgram, (GLuint)i, bufSize, &length, &size, &type, varName);
+varList[std::string(varName)] = glGetAttribLocation(idProgram, varName);
+}
+glGetProgramiv(idProgram, GL_ACTIVE_UNIFORMS, &numUniforms);
+for (int i = 0; i < numUniforms; i++)
+{
+string varName; varName.resize(100);
+int bufSize = 100, length = 0, size = 0;
+GLenum type = -1;
+glGetActiveUniform(idProgram, (GLuint)i, bufSize, &length, &size, &type, varName.data());
+varName = std::string(varName.c_str()); //interrogar con nombre
+if (varName[varName.length() - 1] == ']') {//si es de tipo array
+std::string arrName = varName.substr(0, varName.find('['));
+for (int i = 0; i < size; i++) //coneguir la lista completa de nombres
+{
+std::string arrNameIdx = arrName + "[" + std::to_string(i) + "]";
+varList[arrNameIdx] = glGetUniformLocation(idProgram, arrNameIdx.c_str());
+}
+}
+else
+varList[varName] = glGetUniformLocation(idProgram, varName.c_str());
+}
+}
+Asignatura/Tema
+Listando atributos/uniform
+20
+▪ Una vez tenemos el índice de una variable de tipo atributo, podemos inicializar sus
+valores. Las variables atributo tprovienen de un array/buffer de datos cargado
+anteriormente. Para ello:
+▪ void glEnableVertexAttribArray(GLuint index)
+▪ Activa la escritura en una variable attribute cuya localización se pasa en el parámetro index.
+▪ void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean
+normalized, GLsizei stride, const GLvoid* pointer)
+▪ Especifica cómo leer del buffer de vértices los datos de una variable attribute. Sus argumentos son:
+▪ index: Localización/identificador de la variable.
+▪ size: Número de componentes a escribir por vértice (4 para posiciones ,normales, colores, 2 para coordenadas
+de textura).
+▪ type: Tipo con el que le pasamos los datos (por ejemplo, GL_FLOAT, GL_UNSIGNED_BYTE...).
+▪ normalized: Indica si se deben normalizar los datos enviados. Por ejemplo, si definimos los colores con valores
+[0, 255], se normalizarán automáticamente al rango [0, 1] si este parámetro vale true.
+▪ stride: Tamaño del paquete de datos completo para un vértice (el sizeof de la estructura donde guardamos los
+datos de un vértice).
+▪ pointer: Offset dentro del buffer activo en que se encuentra el primer dato (es un entero que debemos castear a
+void*).
+Asignatura/Tema
+Shaders
+21
+▪ El fragment shader recibirá los fragmentos (píxeles potenciales) que forman
+cada una de las primitivas que pasamos al proceso de renderizado.
+▪ Se ejecuta una vez por fragmento.
+▪ Dependiendo del efecto gráfico realizado, puede ser necesario pasar
+información desde el vertex shader hacia el fragment shader.
+▪ Una variable usa el atributo attribute cuando es un valor de entrada al
+vertex shader, y out/in cuando es de salida en el vertex shader y de entrada
+en el fragment shader (se utiliza para pasar datos de uno a otro).
+▪ Como el vertex shader se ejecuta por vértice y el fragment shader por
+fragmento, para calcular el valor que recibe cada fragmento de las variables
+varying, se realiza una interpolación de los datos.
+▪ Versiones más modernas de GLSL utilizan in para variables de entrada en
+cualquier shader, y out para variables de salida (esta sintaxis no es
+compatible con OpenGL ES 2 ni WebGL 1).
+Asignatura/Tema
+Fragment Shader
+22
+▪ Ejemplo: el vertex shader pasa al fragment shader el color del vértice.
+▪ Para los fragmentos que no corresponden con ninguno de los vértices,
+el color recibido será la interpolación de los valores de color de todos los
+vértices de la primitiva.
+Asignatura/Tema
+Shaders
+Asignatura/Tema 23
+Shaders
+• Código del vertex shader:
+#version 330
+uniform mat4 MVP;
+attribute vec4 vPos;
+attribute vec4 vColor;
+out vec4 fColor;
+void main() {
+gl_Position=MVP*vPos;
+fColor = vColor;
+}
+• Código del fragment shader:
+#version 330
+in vec4 fColor;
+void main() {
+gl_FragColor = fColor;
+}
+• La variable gl_FragColor del fragment
+shader guarda el color final del
+fragmento (del valor de salida del
+shader). Tiene tipo vec4 (vector de 4
+coordenadas -RGBA-).
+24
+▪ Hemos explicado dos modificadores para las variables de los shaders:
+▪ attribute son valores que se recibirán por cada vértice.
+▪ in/out son variables de salida en el vertex shader y de entrada en el fragment
+shader (los valores que salen se interpolan para generar la entrada en la
+siguiente fase).
+▪ En los ejemplos se han visto otro tipo de variables, la variables uniform
+o uniformes.
+▪ El valor de estas variables se define desde la aplicación (en nuestro
+código en C++), y no varían durante toda la ejecución de los shaders (es
+decir, todos los vértices y fragmentos recibirán el mismo valor para estas
+variables).
+▪ Un caso típico de variable uniform es la matriz MVP, que creamos antes
+de renderizar y pasamos a los shaders.
+Asignatura/Tema
+Shaders
+25
+▪ GLint glGetUniformLocation(GLuint program, const GLchar* name)
+▪ Devuelve la localización (el identificador) de la variable uniform llamada name del programa
+indicado. Si la variable no se ha encontrado, devolverá -1.
+▪ void glUniform1i(GLint location, GLint v0)
+▪ void glUniform1f(GLint location, GLfloat v0)
+▪ void glUniform2f(GLint location, GLfloat v0, GLfloat v1)
+▪ void glUniform3f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2)
+▪ void glUniform4f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3)
+▪ void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat*
+value)
+▪ Establecen el valor o valores de una variable uniform. Según el tipo de variable, se utilizará una
+función u otra.
+▪ Ejemplos:
+▪ bool, int: glUniform1i
+▪ float: glUniform1f
+▪ vec3: glUniform3f
+▪ vec4: glUniform4f
+▪ mat4: glUniformMatrix4fv (con count = 1)
+Asignatura/Tema
+Shaders
+26
+▪ Cuando vayamos a dibujar un objeto, activamos sus buffer objects (array list, buffer
+de vértices y buffer de índices) para enlazarlo con la entrada
+de parámetros de nuestro shader:
+▪ glBindVertexArray(array);
+▪ glBindBuffer(GL_ARRAY_BUFFER, vertexId);
+▪ glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxId);
+▪ Activamos el shader que queremos usar:
+▪ glUseProgram(shaderID);
+▪ Seteamos parámetros de tipo Attribute y Uniform
+▪ Atributos:
+▪ glEnableVertexAttribArray(location);
+▪ glVertexAttribPointer(…...,offsetof(estructura,registro));
+▪ Uniform:
+▪ glUniform1i(location, value);
+▪ glUniformMatrix4fv(location, 1,GL_FALSE,glm::mat4);
+Asignatura/Tema
+Shaders
+27
+▪ Cuando tenemos todas las variables seteadas, podemos pasar a dibujar
+la malla:
+▪ glDrawElements(GL_TRIANGLES, numberOfIndexes, GL_UNSIGNED_INT,
+nullptr);
+Asignatura/Tema
+Shaders
